@@ -37,7 +37,7 @@ def clear_punctuations(text):
     return text
 
 def clear_english_and_numbers(text):
-     text = re.sub(r"[a-zA-Z0-9٠-٩]", " ", text);
+     text = re.sub(r"[a-zA-Z0-9٠-٩]", " ", text)
      return text
 
 def is_tashkel(text):

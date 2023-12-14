@@ -22,7 +22,7 @@ def readFile(file_path):
 # %%
 def get_sentences(data):
     #return nltk.tokenize.sent_tokenize(data) #sent_tokenize(data.strip())
-    sentences = re.split("[\n.،]+", data)
+    sentences = re.split("[\n.؛،]+", data)
     # sentences = [s for sentence in senten]
     words_per_sentence = []
     tashkeel_per_sentence = []

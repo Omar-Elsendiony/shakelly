@@ -131,11 +131,12 @@ arabic_alphabet = {
     "ئ": 34,
     "ء": 35,
     "إ": 36,
+    "آ": 37,
 
     }
 
 def get_char_vector(char):
-    vector = [0 for _ in range(36)]
+    vector = [0 for _ in range(37)]
     vector[arabic_alphabet[char] - 1] = 1
     return vector
 

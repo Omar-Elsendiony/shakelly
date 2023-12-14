@@ -94,4 +94,45 @@ def combine_text_with_harakat(input_sent, output_sent):
     return text
 
 
+arabic_alphabet = {
+    "أ": 1,
+    "ب": 2,
+    "ت": 3,
+    "ث": 4,
+    "ج": 5,
+    "ح": 6,
+    "خ": 7,
+    "د": 8,
+    "ذ": 9,
+    "ر": 10,
+    "ز": 11,
+    "س": 12,
+    "ش": 13,
+    "ص": 14,
+    "ض": 15,
+    "ط": 16,
+    "ظ": 17,
+    "ع": 18,
+    "غ": 19,
+    "ف": 20,
+    "ق": 21,
+    "ك": 22,
+    "ل": 23,
+    "م": 24,
+    "ن": 25,
+    "هـ": 26,
+    "و": 27,
+    "ي": 28,
+}
+
+def get_char_vector(char):
+    vector = [0 for _ in range(28)]
+    vector[arabic_alphabet[char] - 1] = 1
+    return vector
+
+#print(arabic_alphabet.keys())
+print(get_char_vector(''))
+
+
+
 #print(combine_text_with_harakat("ال",['_',""]))

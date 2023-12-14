@@ -23,13 +23,11 @@ def load_binary(file, folder):
 
     return data
 
-def get_sentences(data):
-    #return nltk.tokenize.sent_tokenize(data) #sent_tokenize(data.strip())
-    return [sent for line in re.split("[\n,،]+", data) if line for sent in sent_tokenize(line.strip()) if sent]
-    #return [sent for line in data.split('\n') if line for sent in sent_tokenize(line) if sent]
 
 
-#print(get_sentences("لله \nل \n والمنة"))
+
+# print(get_sentences("لله \nل \n والمنة"))
+
 
 
 def clear_punctuations(text):
@@ -37,7 +35,7 @@ def clear_punctuations(text):
     return text
 
 def clear_english_and_numbers(text):
-     text = re.sub(r"[a-zA-Z0-9٠-٩]", " ", text);
+     text = re.sub(r"[a-zA-Z0-9٠-٩]", " ", text)
      return text
 
 def is_tashkel(text):
@@ -72,7 +70,7 @@ def get_tashkel(sentence):
             output.insert(0, current_haraka)
             current_haraka = ""
 
-    return output, len(sentence)
+    return output
 
 
 #print(get_tashkel("اً,"))

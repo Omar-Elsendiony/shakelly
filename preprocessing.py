@@ -11,11 +11,13 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 
 # %%
 # read the training set
-file_path = "dataset/train.txt"
-# Open the file for reading
-with open(file_path, 'r', encoding='utf-8') as file:
-    # Read the content of the file
-    file_content = file.read()
+def readFile(file_path):
+    # Open the file for reading
+    file_content = None
+    with open(file_path, 'r', encoding='utf-8') as file:
+        # Read the content of the file
+        file_content = file.read()
+    return clear_english_and_numbers(file_content)
 
 # %%
 def get_sentences(data):
@@ -45,8 +47,7 @@ def get_sentences(data):
     #return [sent for line in data.split('\n') if line for sent in sent_tokenize(line) if sent]
     return words_per_sentence, tashkeel_per_sentence
 
-# %%
-file_content = clear_english_and_numbers(file_content)
+
 
 # %%
 # words_without_diacritics = clear_tashkel(file_content)
@@ -59,29 +60,18 @@ test_sentence = '''
 '''
 
 # %%
-dataset_without_diacritic, diacritics = get_sentences(clear_english_and_numbers(test_sentence))
+# dataset_without_diacritic, diacritics = get_sentences(clear_english_and_numbers(test_sentence))
 
-# %%
-test2 = 'قوله   أو قطع الأول يده إلخ  قال الزركشي'
-print(word_tokenize(test2.strip())[0])
 
 # %%
 from gensim.models import Word2Vec
 # Define and train Word2Vec model
+def makeWord2VecModel(dataset):
+    word2vec_model = Word2Vec(sentences=dataset, vector_size=100, window=5, min_count=1, workers=4)
+    # Save the trained model (optional)
+    word2vec_model.save("word2vec_model.model")
+    return word2vec_model
 
-word2vec_model = Word2Vec(sentences=dataset_without_diacritic, vector_size=100, window=5, min_count=1, workers=4)
-
-# Save the trained model (optional)
-word2vec_model.save("word2vec_model.model")
-
-model_keys = word2vec_model.wv.key_to_index
-# print(word2vec_model.wv.vectors.shape)
-if 'وله' in model_keys: print(word2vec_model.wv['ق'])
-
-# %%
-test3 = 'قوله   او قطع الأول يده إلخ  قال الزركشي'
-
-get_char_vector(word_tokenize(test2.strip())[1][1])
 
 # %%
 import numpy
@@ -92,6 +82,6 @@ def getCharacterEncoding(word):
         word_embedding.append(get_char_vector(w))
     return word_embedding
 
-getCharacterEncoding('ألزركش')
+# getCharacterEncoding('ألزركش')
 
 

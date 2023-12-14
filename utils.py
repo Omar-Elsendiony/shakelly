@@ -120,7 +120,7 @@ arabic_alphabet = {
     "ل": 23,
     "م": 24,
     "ن": 25,
-    "هـ": 26,
+    "ه": 26,
     "و": 27,
     "ي": 28,
     "ة": 29,
@@ -129,17 +129,21 @@ arabic_alphabet = {
     "ؤ": 32,
     "ا": 33,
     "ئ": 34,
+    "ء": 35,
+    "إ": 36,
+
     }
 
 def get_char_vector(char):
-    vector = [0 for _ in range(34)]
+    vector = [0 for _ in range(36)]
     vector[arabic_alphabet[char] - 1] = 1
     return vector
 
-harakat   = {1614:1,1615:2,1616:3,1618:4,1617:5,1611:6,1612:7,1613:8}
+harakat   = {1614:1,1615:2,1616:3,1618:4,1617:5,1611:6,1612:7,1613:8, 95:9}
 
 def get_diacritic_hot_vector(haraka):
-    vector = [0 for _ in range(8)]
+    vector = [0 for _ in range(9)]
+    print(ord(haraka))
     vector[harakat[ord(haraka)] - 1] = 1
     return vector 
 

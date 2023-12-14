@@ -23,13 +23,11 @@ def load_binary(file, folder):
 
     return data
 
-def get_sentences(data):
-    #return nltk.tokenize.sent_tokenize(data) #sent_tokenize(data.strip())
-    return [sent for line in re.split("[\n,،]+", data) if line for sent in sent_tokenize(line.strip()) if sent]
-    #return [sent for line in data.split('\n') if line for sent in sent_tokenize(line) if sent]
 
 
-#print(get_sentences("لله \nل \n والمنة"))
+
+# print(get_sentences("لله \nل \n والمنة"))
+
 
 
 def clear_punctuations(text):
@@ -72,7 +70,7 @@ def get_tashkel(sentence):
             output.insert(0, current_haraka)
             current_haraka = ""
 
-    return output, len(sentence)
+    return output
 
 
 #print(get_tashkel("اً,"))
@@ -94,6 +92,54 @@ def combine_text_with_harakat(input_sent, output_sent):
         text += character + "" + haraka
 
     return text
+
+
+arabic_alphabet = {
+    "أ": 1,
+    "ب": 2,
+    "ت": 3,
+    "ث": 4,
+    "ج": 5,
+    "ح": 6,
+    "خ": 7,
+    "د": 8,
+    "ذ": 9,
+    "ر": 10,
+    "ز": 11,
+    "س": 12,
+    "ش": 13,
+    "ص": 14,
+    "ض": 15,
+    "ط": 16,
+    "ظ": 17,
+    "ع": 18,
+    "غ": 19,
+    "ف": 20,
+    "ق": 21,
+    "ك": 22,
+    "ل": 23,
+    "م": 24,
+    "ن": 25,
+    "هـ": 26,
+    "و": 27,
+    "ي": 28,
+    "ة": 29,
+    "ى": 30,
+    "ا": 31,
+    "ؤ": 32,
+    "ا": 33,
+    "ئ": 34,
+    }
+
+def get_char_vector(char):
+    vector = [0 for _ in range(34)]
+    vector[arabic_alphabet[char] - 1] = 1
+    return vector
+
+#print(arabic_alphabet.keys())
+
+print(get_char_vector('ؤ'))
+
 
 
 #print(combine_text_with_harakat("ال",['_',""]))

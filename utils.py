@@ -123,15 +123,22 @@ arabic_alphabet = {
     "هـ": 26,
     "و": 27,
     "ي": 28,
-}
+    "ة": 29,
+    "ى": 30,
+    "ا": 31,
+    "ؤ": 32,
+    "ا": 33,
+    "ئ": 34,
+    }
 
 def get_char_vector(char):
-    vector = [0 for _ in range(28)]
+    vector = [0 for _ in range(34)]
     vector[arabic_alphabet[char] - 1] = 1
     return vector
 
 #print(arabic_alphabet.keys())
-print(get_char_vector(''))
+
+print(get_char_vector('ؤ'))
 
 
 

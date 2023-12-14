@@ -136,9 +136,18 @@ def get_char_vector(char):
     vector[arabic_alphabet[char] - 1] = 1
     return vector
 
+harakat   = {1614:1,1615:2,1616:3,1618:4,1617:5,1611:6,1612:7,1613:8}
+
+def get_diacritic_hot_vector(haraka):
+    vector = [0 for _ in range(8)]
+    vector[harakat[ord(haraka)] - 1] = 1
+    return vector 
+
+#print(get_diacritic_hot_vector('ّ'))
+
 #print(arabic_alphabet.keys())
 
-print(get_char_vector('ؤ'))
+#print(get_char_vector('ؤ'))
 
 
 

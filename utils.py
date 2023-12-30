@@ -68,8 +68,11 @@ def get_tashkel(sentence):
             #print("7arf",current_haraka)
             output.insert(0, current_haraka)
             current_haraka = ""
-
     return output
+# def get_tashkel(sentence):
+#     output = []
+#     current_haraka = ""
+    
 
 
 #print(get_tashkel("اً,"))
@@ -92,8 +95,12 @@ def combine_text_with_harakat(input_sent, output_sent):
 
     return text
 
-arabic_alphabet=load_binary('arabic_letters','./')
+arabic_alphabet_set=load_binary('arabic_letters','./')
+arabic_alphabet = dict(zip(arabic_alphabet_set, list(range(len(arabic_alphabet_set)))))
+print(arabic_alphabet)
 
+print("length=")
+print(len(arabic_alphabet))
 #diacritic:id
 #harakat=load_binary('diacritic2id','./')
 
@@ -117,11 +124,11 @@ def get_diacritic_hot_vector(haraka):
     vector[harakat[ord(haraka)] - 1] = 1
     return vector 
 
-#print(get_diacritic_hot_vector('ّ'))
+print(get_diacritic_hot_vector('ّ'))
 
-#print(arabic_alphabet.keys())
+print(arabic_alphabet.keys())
 
-#print(get_char_vector('ؤ'))
+print(get_char_vector('ؤ'))
 
 
-#print(combine_text_with_harakat("ال",['_',""]))
+print(combine_text_with_harakat("ال",['_',""]))

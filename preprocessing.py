@@ -40,8 +40,6 @@ def get_sentences(data):
     tashkeel_per_sentence = [[None for _ in w ]for w in words_per_sentence]
     for i, x in enumerate(words_per_sentence):
         for j, y in enumerate(x):
-            print("char:")
-            print(y)
             tashkeel = get_tashkel(y)
             words_per_sentence[i][j] = clear_tashkel(y)
             tashkeel_per_sentence[i][j] = tashkeel
@@ -50,7 +48,8 @@ def get_sentences(data):
     return words_per_sentence, tashkeel_per_sentence
 
 sent="عَُمرً"
-get_sentences(sent)
+
+print(get_sentences(sent))
 # words_per_sentence, tashkeel_per_sentence=get_sentences("بَُ")
 # print(ord(tashkeel_per_sentence[0][0][1]))
 

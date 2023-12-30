@@ -122,7 +122,7 @@ print(len(arabic_alphabet))
 def get_char_vector(char):
     if char in arabic_alphabet:
         vector = [0 for _ in range(len(arabic_alphabet))]
-        vector[arabic_alphabet[char] - 1] = 1
+        vector[arabic_alphabet[char] ] = 1
         return vector
     else:
         return 'UNK'

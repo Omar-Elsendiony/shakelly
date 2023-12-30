@@ -3,6 +3,7 @@ import string
 import re   
 import pickle
 import nltk
+import numpy as np
 from nltk.tokenize import sent_tokenize, word_tokenize
 nltk.download('punkt')
 
@@ -125,24 +126,24 @@ def get_char_vector(char):
         vector[arabic_alphabet[char] ] = 1
         return vector
     else:
-        return 'UNK'
+        return list(np.ones(len(arabic_alphabet),dtype=int) )
     
 
 
 #harakat   = {1614:1,1615:2,1616:3,1618:4,1617:5,1611:6,1612:7,1613:8, 95:9}
 
-def get_diacritic_hot_vector(haraka):
-    if haraka not in harakat:
-        return 'UNK'
-    vector = [0 for _ in range(len(harakat))]
-    vector[harakat[ord(haraka)] - 1] = 1
-    return vector 
+# def get_diacritic_hot_vector(haraka):
+#     if haraka not in harakat:
+#         return list(np.ones(15,dtype=int) )
+#     vector = [0 for _ in range(len(harakat))]
+#     vector[harakat[ord(haraka)] - 1] = 1
+#     return vector 
 
-print(get_diacritic_hot_vector('ّ'))
+# print(get_diacritic_hot_vector('ّ'))
 
-print(arabic_alphabet.keys())
+# print(arabic_alphabet.keys())
 
-print(get_char_vector('ؤ'))
+# print(get_char_vector('ؤ'))
 
 
-print(combine_text_with_harakat("ال",['_',""]))
+# print(combine_text_with_harakat("ال",['_',""]))

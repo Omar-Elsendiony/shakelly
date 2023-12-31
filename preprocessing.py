@@ -55,7 +55,6 @@ test_sentence = '''
 
 
 
-
 # %%
 from gensim.models import Word2Vec
 # Define and train Word2Vec model

@@ -5,6 +5,8 @@ import re
 import pickle
 from nltk.tokenize import sent_tokenize, word_tokenize
 
+
+
 # read the training set
 def readFile(file_path):
     # Open the file for reading
@@ -56,7 +58,7 @@ test_sentence = '''
 
 
 # %%
-from gensim.models import Word2Vec, FastText
+from gensim.models import  FastText
 # Define and train Word2Vec model
 def makeModel(dataset):
     model = FastText(sentences=dataset, vector_size=100, window=5, min_count=1, workers=4)

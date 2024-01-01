@@ -36,6 +36,7 @@ def clear_tashkel(text):
 
 
 def get_tashkel(sentence):
+    # harakat= load_binary('diacritics','./')
     output = []
     current_haraka = ""
     chIndex = 0

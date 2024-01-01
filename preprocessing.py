@@ -56,13 +56,13 @@ test_sentence = '''
 
 
 # %%
-from gensim.models import Word2Vec
+from gensim.models import Word2Vec, FastText
 # Define and train Word2Vec model
-def makeWord2VecModel(dataset):
-    word2vec_model = Word2Vec(sentences=dataset, vector_size=100, window=5, min_count=1, workers=4)
+def makeModel(dataset):
+    model = FastText(sentences=dataset, vector_size=100, window=5, min_count=1, workers=4)
     # Save the trained model (optional)
-    word2vec_model.save("word2vec_model.model")
-    return word2vec_model
+    model.save("model.model")
+    return model
 
 
 

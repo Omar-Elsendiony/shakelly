@@ -18,9 +18,10 @@ def readFile(file_path):
 
 def cleanText(data):
     punctuations=["،","؛","؟",".",",","!",":"," "]
+    listTobeChecked = set(tuple(list(harakat)+list(arabic_alphabet.keys())+punctuations))
     for char in data:
         #check if char is not in arabic alphabet or harakat
-        if char not in (tuple(list(harakat)+list(arabic_alphabet.keys())+punctuations)):
+        if char not in (listTobeChecked):
             data = data.replace(char,'')
     # split text into sentences using regex
     

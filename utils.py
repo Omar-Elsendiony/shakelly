@@ -63,14 +63,8 @@ def get_tashkel(sentence):
     return output
 
 
-
 arabic_alphabet_set=load_binary('arabic_letters','./')
 arabic_alphabet = dict(zip(arabic_alphabet_set, list(range(len(arabic_alphabet_set)))))
-
-
-
-
-
 
 def get_char_vector(char):
     if char in arabic_alphabet:
